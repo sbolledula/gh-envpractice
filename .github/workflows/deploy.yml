@@ -8,6 +8,8 @@ env:
   XYZ: 3000
 jobs:
   intg:
+    env:
+      stage: intg
     environment: intg
     runs-on: ubuntu-latest
     steps:
@@ -25,7 +27,9 @@ jobs:
 #      - name: Run tests
 #        run: npm test
       - name: Output information
-        run: echo "... This is job level variable -> ${{env.XYZ}} ..."
+        run: |
+          echo "... This is workflow level variable -> ${{env.XYZ}} ..."
+          echo "... This is job level variable -> ${{ env.stage}} ..."
   uat:
     environment: uat
     runs-on: ubuntu-latest
