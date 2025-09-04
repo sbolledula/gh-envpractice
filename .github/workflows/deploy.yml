@@ -25,7 +25,7 @@ jobs:
 #      - name: Run tests
 #        run: npm test
       - name: Output information
-        run: echo "... This is job level variable -> $env.XYZ ..."
+        run: echo "... This is job level variable -> ${{env.XYZ}} ..."
   uat:
     environment: uat
     runs-on: ubuntu-latest
