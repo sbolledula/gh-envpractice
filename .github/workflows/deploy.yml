@@ -30,6 +30,7 @@ jobs:
         run: |
           echo "... This is workflow level variable -> ${{env.XYZ}} ..."
           echo "... This is job level variable -> ${{ env.stage}} ..."
+          
   uat:
     environment: uat
     runs-on: ubuntu-latest
@@ -56,3 +57,5 @@ jobs:
       - name: Output information
         run: |        
           echo "..."
+      - name: Print job name
+        run: echo "Job name is ${{ github.job }}"
