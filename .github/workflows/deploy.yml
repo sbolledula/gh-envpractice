@@ -31,7 +31,9 @@ jobs:
           echo "... This is workflow level variable -> ${{env.XYZ}} ..."
           echo "... This is job level variable -> ${{ env.stage}} ..."
       - name: Print job name
-        run: echo "Job name is ${{ github.job.steps }}"
+        env:
+            STEP_NAME: My Step Name
+        run: echo "Job name is ${{ env.STEP_NAME }} in ${{ github.job }} job"
           
   uat:
     environment: uat
