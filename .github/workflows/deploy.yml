@@ -4,6 +4,8 @@ on:
     branches:
       - main
       - dev
+env:
+  XYZ: 3000
 jobs:
   intg:
     environment: intg
@@ -23,7 +25,7 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Output information
-        run: echo "..."
+        run: echo "... This is job level variable -> $env.XYZ ..."
   uat:
     environment: uat
     runs-on: ubuntu-latest
@@ -42,7 +44,7 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Output information
-        run: echo "..."
+        run: echo "...This is job level variable -> $env.XYZ ..."
   deploy:
     needs: uat
     runs-on: ubuntu-latest
