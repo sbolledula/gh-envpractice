@@ -6,7 +6,7 @@ on:
       - dev
 jobs:
   intg:
-    environment: Integration testing
+    environment: intg
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -25,7 +25,7 @@ jobs:
       - name: Output information
         run: echo "..."
   uat:
-    environment: UAT testing
+    environment: uat
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -44,7 +44,7 @@ jobs:
       - name: Output information
         run: echo "..."
   deploy:
-    needs: test
+    needs: uat
     runs-on: ubuntu-latest
     steps:
       - name: Output information
