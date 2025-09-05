@@ -30,6 +30,7 @@ jobs:
         run: |
           echo "... This is workflow level variable -> ${{env.XYZ}} ..."
           echo "... This is job level variable -> ${{ env.stage}} ..."
+          echo "... This is github variable -> ${{ github.run_number }} ..."
       - name: Print job name
         env:
             STEP_NAME: My Step Name
